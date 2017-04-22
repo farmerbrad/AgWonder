@@ -452,7 +452,9 @@ margin-top:190px;
       var max = 300;
       $('.water-amount').removeClass('active');
       $('.water-amount').addClass('active');
-    }else {
+    }
+    
+    if (urlParams.get('mode') == "feed") {
       var min = 200;
       var max = 300;
           var mode = urlParams.get('mode');
