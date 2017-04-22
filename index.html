@@ -473,7 +473,7 @@ margin-top:190px;
     $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
       var storeddistance = localStorage.getItem("distance");
-      var distance = data.streams[0];
+      var distance = data.streams[0].value;
       console.log(distance);
       
       var percent = ((max - distance) / (max - min)) * 100;
