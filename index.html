@@ -473,7 +473,7 @@ margin-top:190px;
     $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
       var storeddistance = localStorage.getItem("distance");
-      var distance = data.streams[0].distance;
+      var distance = data.streams[0].distance.val;
       
       var percent = ((max - distance) / (max - min)) * 100;
       
@@ -486,16 +486,20 @@ margin-top:190px;
       if(mode == "water"){
         $('.water-amount').html(percent + " %");
         console.log('get water level');
+        if(distance != storeddistance){
+          $('.water-amount').html(localStorage.getItem("percent") + " %");
+        }
       }
       
       if(mode == "feed"){
         $('.feeder-amount').html(percent + " %");
         console.log('get feed level');
+        if(distance != storeddistance){
+            $('.feed-amount').html(localStorage.getItem("percent") + " %");
+        }
       }
       
-      if(distance != storeddistance){
-        buildChart(localStorage.getItem("percent"));
-      }
+      
     }
     setTimeout(pollData, 1000);
     });
