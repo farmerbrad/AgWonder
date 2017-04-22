@@ -448,16 +448,19 @@ margin-top:190px;
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('mode') == ""){
       var mode = "water";
+      var min = 200;
+      var max = 300;
       $('.water-amount').removeClass('active');
       $('.water-amount').addClass('active');
     }else {
+      var min = 200;
+      var max = 300;
           var mode = urlParams.get('mode');
           $('.feeder-amount').removeClass('active');
           $('.feeder-amount').addClass('active');
     }
 
-    var min = 200;
-    var max = 300;
+
     var percent = 0;
     localStorage.setItem("distance", 0);
     localStorage.setItem("percent", 0);
