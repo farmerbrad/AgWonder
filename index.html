@@ -486,6 +486,10 @@ margin-top:190px;
     var percent = 0;
     localStorage.setItem("distance", 0);
     localStorage.setItem("percent", 0);
+    
+    var urlParams = new URLSearchParams(window.location.search);
+    
+    console.log(urlParams.get('mode'));
     (function pollData() {
     $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
@@ -518,49 +522,6 @@ margin-top:190px;
     });
     }());
 
-    var ctx = document.getElementById("myChart");
-
-    function buildChart(data){
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["Chicken Water #1"],
-          datasets: [{
-            label: "Percent Full",
-              data: [data],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                display: true,
-                          ticks: {
-                            beginAtZero: true,
-                    max: 100
-                }
-              }]
-          },
-          max: 100
-      }
-    });
-    }
 
     </script>
 
@@ -577,90 +538,6 @@ margin-top:190px;
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
     
-    <script>
-    
-    var urlParams = new URLSearchParams(window.location.search);
-    
-    console.log(urlParams.get('mode'));
-    
-    
-    
-maxRotation = 360;
-svgNode = document.getElementById('svg-node');
-container = document.getElementById('container');
-dialValue = document.getElementById('dial-value');
-
-info = document.getElementById('info');
-nullObject = document.getElementById('null-object');
-dialLine = document.getElementById('dial-line');
-dialLineBg = document.getElementById('dial-line-bg');
-outline = document.getElementById('outline');
-TweenMax.set(document.body, {
-  userSelect:'none'
-})
-TweenMax.set(dialLine, {
-  drawSVG:'0%'
- 
-});
-
-TweenMax.set(outline, {
-
-  alpha:0.5
-});
-TweenMax.set(dialLineBg, {
-
-  alpha:0.05
-});
-
-TweenMax.set([container, svgNode, dialValue, info], {
-  position:'absolute',
-             left:'50%',
-             top:'50%',
-             xPercent:-50,
-             yPercent:-50,
-  
-});
-
-TweenMax.set(svgNode, {
-  rotation:'-=90'
-})
-
-TweenMax.set(nullObject, {
-  position:'absolute',
-  x:0
-})
-
-
-Draggable.create(container, {
-  //trigger:container,
-  bounds:{maxRotation:maxRotation, minRotation:0},
-  type:'rotation',
-  throwProps:true,
-  onDrag:dragUpdate,
-  onThrowUpdate:dragUpdate
-})
-
-function dragUpdate(){
-  var val = (container._gsTransform.rotation/maxRotation);
-  
-
-  var percent = val * 100;
-    //console.log(percent);
-  percent = (percent > 100) ? 100 : percent;
-  percent = (percent < 0) ? 0 : percent;
- 
-  TweenMax.set(dialLine, {
-    drawSVG:percent + '%'
-  })
-    TweenMax.set(outline, {
-    drawSVG:'100% ' + percent + '%'
-  })
-  
-  dialValue.innerHTML = Math.floor(percent);
-  
-}
-
-    </script>
 
 </body>
 
