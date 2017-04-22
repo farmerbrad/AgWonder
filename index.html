@@ -470,12 +470,11 @@ margin-top:190px;
 
     
     (function pollData() {
-    $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
+    $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/distance', function (data) {
     if (data) {
       var storeddistance = localStorage.getItem("distance");
       console.log(data);
       var distance = data.streams[0].value;
-      var deviceId = data.streams[1].value;
       
       var percent = ((max - distance) / (max - min)) * 100;
       
