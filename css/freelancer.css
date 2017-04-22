@@ -516,5 +516,5 @@ div#maincontent {
 }
 
 #chart .active {
-  background-color: red;
+  background-color: red!important;
 }
