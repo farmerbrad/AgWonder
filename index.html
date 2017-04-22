@@ -479,7 +479,7 @@ margin-top:190px;
     <script src="vendor/jquery/jquery.min.js"></script>
     
     <script>
-
+    var urlParams = new URLSearchParams(window.location.search);
     var mode = urlParams.get('mode');
     var min = 200;
     var max = 300;
@@ -487,9 +487,8 @@ margin-top:190px;
     localStorage.setItem("distance", 0);
     localStorage.setItem("percent", 0);
     
-    var urlParams = new URLSearchParams(window.location.search);
+
     
-    console.log(urlParams.get('mode'));
     (function pollData() {
     $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
