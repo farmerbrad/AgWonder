@@ -470,7 +470,7 @@ margin-top:190px;
 
     
     (function pollData() {
-    $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/distance', function (data) {
+    $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
       var storeddistance = localStorage.getItem("distance");
       console.log(data);
@@ -482,7 +482,7 @@ margin-top:190px;
         localStorage.setItem("distance", distance);
         localStorage.setItem("percent", percent);
       }
-      $('#displayData').html(distance, deviceId);
+      $('#chart .active').html(distance);
 
       if(mode == "water"){
         $('.water-amount').html(percent + " %");
