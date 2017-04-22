@@ -482,6 +482,9 @@ margin-top:190px;
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('mode') == ""){
       var mode = "water";
+      $('.water-amount').removeClass('active');
+      $('.water-amount').addClass('active');
+      
     }else {
           var mode = urlParams.get('mode');
     }
