@@ -419,8 +419,8 @@ margin-top:190px;
     }
     
     if (urlParams.get('mode') == "feed") {
-      var min = 200;
-      var max = 300;
+      var min = 100;
+      var max = 450;
           var mode = urlParams.get('mode');
           $('.feed.text-center').removeClass('active');
           $('.feed.text-center').addClass('active');
@@ -441,7 +441,7 @@ margin-top:190px;
       console.log(distance);
       
       var percent = ((max - distance) / (max - min)) * 100;
-      var percent = percent.toFixed(2);
+      var percent = percent.toFixed(0);
       if (localStorage.getItem("distance") == 0 || storeddistance != distance){
         localStorage.setItem("distance", distance);
         localStorage.setItem("percent", percent);
