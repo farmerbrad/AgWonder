@@ -52,6 +52,12 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="?mode='feed'">Feed Mode</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="?mode=water">Water Mode</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="#chart">Sensor</a>
                     </li>
                     <li class="page-scroll">
@@ -604,6 +610,12 @@
     <script src="js/freelancer.min.js"></script>
     
     <script>
+    
+    var urlParams = new URLSearchParams(window.location.search);
+    
+    console.log(urlParams.get('mode'));
+    
+    
     
 maxRotation = 360;
 svgNode = document.getElementById('svg-node');
