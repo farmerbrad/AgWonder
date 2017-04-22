@@ -137,7 +137,7 @@ margin-top:190px;
     <section id="chart">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-6 text-center active">
                     <h2>Chicken Waterer</h2>
                     <hr class="star-primary">
                     <div class="water-amount" id="dial-value" >0</div>
@@ -450,16 +450,16 @@ margin-top:190px;
       var mode = "water";
       var min = 200;
       var max = 300;
-      $('.water-amount').removeClass('active');
-      $('.water-amount').addClass('active');
+      $('.text-center').contains('Chicken Waterer').removeClass('active');
+      $('.text-center').contains('Chicken Waterer').addClass('active');
     }
     
     if (urlParams.get('mode') == "feed") {
       var min = 200;
       var max = 300;
           var mode = urlParams.get('mode');
-          $('.feeder-amount').removeClass('active');
-          $('.feeder-amount').addClass('active');
+          $('.text-center').contains('Chicken Feeder').removeClass('active');
+          $('.text-center').contains('Chicken Feeder').addClass('active');
     }
 
 
