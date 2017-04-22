@@ -450,9 +450,10 @@ margin-top:190px;
       var mode = "water";
       $('.water-amount').removeClass('active');
       $('.water-amount').addClass('active');
-      
     }else {
           var mode = urlParams.get('mode');
+          $('.feed-amount').removeClass('active');
+          $('.feed-amount').addClass('active');
     }
 
     var min = 200;
@@ -480,11 +481,12 @@ margin-top:190px;
       $('#displayData').html(distance, deviceId);
 
       if(mode == "water"){
-        $('.water-amount').html(distance + " %");
+        $('.water-amount').html(percent + " %");
         console.log('get water level');
       }
       
       if(mode == "feed"){
+        $('.feed-amount').html(percent + " %");
         console.log('get feed level');
       }
       
