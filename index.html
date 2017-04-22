@@ -505,9 +505,11 @@ margin-top:190px;
       if(mode == "water"){
         console.log('get water level');
       }
+      
       if(mode == "feed"){
         console.log('get feed level');
       }
+      
       if(distance != storeddistance){
         buildChart(localStorage.getItem("percent"));
       }
