@@ -443,14 +443,14 @@ margin-top:190px;
       var percent = percent.toFixed(0);
       if (localStorage.getItem("distance") == 0 || storeddistance != distance){
         localStorage.setItem("distance", distance);
-        localStorage.setItem("percent", percent.toFixed(0));
+        localStorage.setItem("percent", percent);
       }
 
       if(mode == "water"){
         $('.water-amount').html(percent.toFixed(0) + " %");
         console.log('get water level');
         if(distance != storeddistance){
-          $('.water-amount').html(localStorage.getItem("percent").toFixed(0) + " %");
+          $('.water-amount').html(localStorage.getItem("percent") + " %");
         }
       }
       
@@ -458,7 +458,7 @@ margin-top:190px;
         $('.feeder-amount').html(percent.toFixed(0) + " %");
         console.log('get feed level');
         if(distance != storeddistance){
-            $('.feed-amount').html(localStorage.getItem("percent").toFixed(0) + " %");
+            $('.feed-amount').html(localStorage.getItem("percent") + " %");
         }
       }
       
