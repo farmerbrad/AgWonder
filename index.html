@@ -174,12 +174,12 @@ margin-top:190px;
                 <div class="col-lg-6 text-center">
                     <h2>Chicken Waterer</h2>
                     <hr class="star-primary">
-                    <div id="dial-value" >0</div>
+                    <div class="water-amount" id="dial-value" >0</div>
                 </div>
                 <div class="col-lg-6 text-center">
                     <h2>Chicken Feeder</h2>
                     <hr class="star-primary">
-                    <div id="dial-value" >0</div>
+                    <div class="feeder-amount" id="dial-value" >0</div>
                 </div>
             </div>
         </div>
@@ -477,11 +477,10 @@ margin-top:190px;
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
-
-    <script src="js/vendor/Chart.min.js"></script>
+    
     <script>
 
-    var mode = 0;
+    var mode = urlParams.get('mode');
     var min = 200;
     var max = 300;
     var percent = 0;
@@ -491,7 +490,7 @@ margin-top:190px;
     $.getJSON('https://api-m2x.att.com/v2/devices/f870b9b591619e9cbd2a58ed7cde7d90/streams/', function (data) {
     if (data) {
       var storeddistance = localStorage.getItem("distance");
-
+      console.log(distance);
       var distance = data.streams[0].value;
       var deviceId = data.streams[1].value;
       
@@ -502,10 +501,11 @@ margin-top:190px;
         localStorage.setItem("percent", percent);
       }
       $('#displayData').html(distance, deviceId);
-      $('.chart-title1').html(+deviceId+ " <i class='fa fa-tint' aria-hidden='true'></i>");
-      if(mode == 0){
+
+      if(mode == "water"){
         console.log('get water level');
-      }else{
+      }
+      if(mode == "feed"){
         console.log('get feed level');
       }
       if(distance != storeddistance){
