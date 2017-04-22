@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
+<img src="https://api-m2x.att.com/v2/charts/940df2cd41b96ea7adf899be034e2234.png?width=800&height=600&type=values">
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
