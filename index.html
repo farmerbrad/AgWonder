@@ -441,7 +441,7 @@ margin-top:190px;
       console.log(distance);
       
       var percent = ((max - distance) / (max - min)) * 100;
-      
+      var percent = percent.toFixed(2);
       if (localStorage.getItem("distance") == 0 || storeddistance != distance){
         localStorage.setItem("distance", distance);
         localStorage.setItem("percent", percent);
