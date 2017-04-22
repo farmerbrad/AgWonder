@@ -447,7 +447,7 @@ margin-top:190px;
       }
 
       if(mode == "water"){
-        $('.water-amount').html(percent.toFixed(0) + " %");
+        $('.water-amount').html(percent + " %");
         console.log('get water level');
         if(distance != storeddistance){
           $('.water-amount').html(localStorage.getItem("percent") + " %");
@@ -455,7 +455,7 @@ margin-top:190px;
       }
       
       if(mode == "feed"){
-        $('.feeder-amount').html(percent.toFixed(0) + " %");
+        $('.feeder-amount').html(percent + " %");
         console.log('get feed level');
         if(distance != storeddistance){
             $('.feed-amount').html(localStorage.getItem("percent") + " %");
